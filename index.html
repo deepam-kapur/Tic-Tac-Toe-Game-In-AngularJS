@@ -14,8 +14,8 @@
     <script src="/js/gameController.js"></script>
 </head>
 
-<body>
-    <div ng-app="ticTacToeApp" ng-controller="tieTacToeController">
+<body ng-app="ticTacToeApp" ng-controller="tieTacToeController" ng-keyup="getkeys($event)" tabindex="0">
+    <div>
         <div class="container main-container">
             <div class="row">
                 <div class="game-title text-center">Tic Tac Toe Game</div>
@@ -42,24 +42,48 @@
                     <div ng-class="isStart?'':'hidden'">
                         <div class="row">
                             <div class="game-main-div">
-                                <div class="row game-row" ng-repeat="gameRow in game">
+                                <div class="row game-row" ng-repeat="gameRow in game" ng-init="parentIndex = $index">
                                     <div class="col-lg-4 game-cell" ng-repeat="gameCell in gameRow"
                                         ng-click="addCircleOrCross(gameCell)">
-                                        <div class="svg" ng-class="gameCell.cellValue">
+                                        <div class="svg" ng-class="gameCell.cellValue" ng-if="gameCell.cellValue">
 
                                         </div>
+                                        <div class="numbering-cell" ng-if="!gameCell.cellValue">
+                                            {{ 3 * parentIndex + ($index+1) }}
+                                        </div>
                                     </div>
+                                </div>
+                                <div class="winning-line" ng-style="{'top': winningLine.top, 
+                                        'left': winningLine.left, 'width': winningLine.width, 
+                                        'height': winningLine.height, transform: winningLine.transform}"
+                                    ng-if="result">
                                 </div>
                             </div>
                         </div>
                         <div class="row text-left">
-                            <div class="col-lg-12" style="font-size: x-large; padding: 10px 0;">
+                            <div class="col-lg-12" style="font-size: x-large; padding: 10px 0;" ng-if="!result">
                                 <span>
                                     Player Turn:
                                 </span>
                                 <span style="font-weight: 600;">
                                     {{isLeftTurn?"Left (O)":"Right (X)"}}
                                 </span>
+                                <br>
+                                <br>
+                                <h3 class="text-center">
+                                    Press The Number Or Click The Box To Play Your Turn.
+                                </h3>
+                            </div>
+                            <div class="col-lg-8" style="font-size: x-large; padding: 10px 0;" ng-if="result">
+                                <span>
+                                    Player Wins:
+                                </span>
+                                <span style="font-weight: 600;">
+                                    {{isLeftTurn?"Left (O)":"Right (X)"}}
+                                </span>
+                            </div>
+                            <div class="col-lg-4 text-right" style="padding: 10px 0;" ng-if="result">
+                                <button class="btn btn-reset" ng-click="resetGame()">RESET GAME</button>
                             </div>
                         </div>
                     </div>

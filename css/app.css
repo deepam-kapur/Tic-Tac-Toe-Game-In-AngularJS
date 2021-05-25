@@ -22,10 +22,7 @@
     border: var(--border-size) solid var(--border-color);
     border-radius: 3px;
     background-color: var(--background-color);
-}
-
-.game-row {
-    margin: 0 !important;
+    position: relative;
 }
 
 .game-row:nth-child(2) {
@@ -90,10 +87,56 @@
     border: 1px solid var(--background-color);
 }
 
-.hidden{
+.btn-reset {
+    color: var(--dark-grey-color);
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+}
+
+.btn-reset:hover {
+    color: var(--background-color);
+    background-color: var(--border-color);
+    border: 1px solid var(--background-color);
+}
+
+.hidden {
     display: none;
 }
 
-.text-left{
+.text-left {
     text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.game-row {
+    margin: 0 !important;
+}
+
+.winning-line {
+    position: absolute;
+    background: var(--dark-grey-color);
+    display: block;
+    content: "";
+}
+
+.game-row-top-0:after {
+    top: 0;
+    width: 2px;
+    height: 100%;
+}
+
+.game-row-left-0:after {
+    left: 0;
+    height: 2px;
+    width: 100%;
+}
+.numbering-cell{    
+    width: 55px;
+    padding: 23px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
