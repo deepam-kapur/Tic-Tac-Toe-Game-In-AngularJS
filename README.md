@@ -2,6 +2,9 @@
 
 Clone to test out this little project for learning purpose. You can use keys or mouse click to play your turn.
 
+## Try the Game
+Play the game on: https://deepam-kapur.github.io/Tic-Tac-Toe-Game-In-AngularJS/
+
 ## Clone the repository
 
     git clone https://github.com/deepam-kapur/Tic-Tac-Toe-Game-In-AngularJS.git
