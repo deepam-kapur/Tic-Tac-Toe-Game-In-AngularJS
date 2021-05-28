@@ -49,13 +49,13 @@
 }
 
 .circle-svg {
-    background-image: url(/img/circle.svg);
+    background-image: url(../img/circle.svg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .cross-svg {
-    background-image: url(/img/cross.svg);
+    background-image: url(../img/cross.svg);
     background-repeat: no-repeat;
     background-size: cover;
 }
